@@ -1,0 +1,15 @@
+{
+  "domain": "plex_override",
+  "name": "Plex Override",
+  "documentation": "https://github.com/constructorfleet/HomeAssistant-Component-PlexOverride",
+  "version": "1.0.0",
+  "requirements": [
+    "plexapi"
+  ],
+  "dependencies": [
+    "media_player"
+  ],
+  "codeowners": [
+    "@teagan42"
+  ]
+}
