@@ -1,8 +1,7 @@
 from typing import List
 
 import voluptuous as vol
-from homeassistant.core import HomeAssistant
-from homeassistant.helpers import config_validation as cv, ConfigType
+from homeassistant.helpers import config_validation as cv
 
 from const import ATTR_CLIENT_IDENTIFIER, ATTR_CONNECTION_URI, CLIENT_IDENTIFIER_PATTERN, DOMAIN
 
@@ -18,7 +17,7 @@ CONFIG_SCHEMA = vol.Schema({
 }, extra=vol.ALLOW_EXTRA)
 
 
-async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
+async def async_setup(hass, config):
     """Set up the plex_override component."""
 
     conf = config.get(DOMAIN)
