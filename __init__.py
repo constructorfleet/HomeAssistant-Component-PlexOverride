@@ -3,7 +3,7 @@ from typing import List
 import voluptuous as vol
 from homeassistant.helpers import config_validation as cv
 
-from const import ATTR_CLIENT_IDENTIFIER, ATTR_CONNECTION_URI, CLIENT_IDENTIFIER_PATTERN, DOMAIN
+from .const import ATTR_CLIENT_IDENTIFIER, ATTR_CONNECTION_URI, CLIENT_IDENTIFIER_PATTERN, DOMAIN
 
 SCHEMA_CLIENT_URI = vol.Schema({
     vol.Required(ATTR_CLIENT_IDENTIFIER): vol.All(vol.Coerce(str), vol.Match(CLIENT_IDENTIFIER_PATTERN)),
