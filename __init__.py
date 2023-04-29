@@ -28,9 +28,9 @@ async def async_setup(hass, config):
         """Refresh key device data."""
         if not self.session:
             self.force_idle()
-            if not self.device:
-                self._attr_available = False
-                return
+        if not self.device:
+            self._attr_available = False
+            return
 
         self._attr_available = True
 
