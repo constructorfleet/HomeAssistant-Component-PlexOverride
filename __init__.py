@@ -35,12 +35,15 @@ async def async_setup(hass, config):
         self._attr_available = True
 
         try:
-            if self.device.address.startswith("10.0"):
-                self.device.protocolCapabilities = "playback"
-                self.device._baseurl = f"http://{self.device.address}:32500"
             device_url = self.device.url("/")
         except plexapi.exceptions.BadRequest:
-            device_url = "127.0.0.1"
+            try:
+                if self.device.address.startswith("10.0"):
+                    self.device.protocolCapabilities = "playback"
+                    self.device._baseurl = f"http://{self.device.address}:32500"
+                device_url = self.device.url("/")
+            except plexapi.exceptions.BadRequest:
+                device_url = "127.0.0.1"
         if "127.0.0.1" in device_url:
             self.device.proxyThroughServer()
         self._device_protocol_capabilities = self.device.protocolCapabilities
